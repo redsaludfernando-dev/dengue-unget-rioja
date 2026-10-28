@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prevención del dengue 2026 | UNGET Rioja</title>
+<meta name="description" content="Acciones de vigilancia y control vectorial, promoción de la salud y epidemiología frente al dengue en la jurisdicción de la UNGET Rioja, por distrito.">
+<meta property="og:title" content="Prevención del dengue 2026 | UNGET Rioja">
+<meta property="og:description" content="Qué se viene haciendo contra el dengue en cada distrito: vigilancia del zancudo, control larvario, recojo de criaderos, escuelas y comités vecinales.">
+<meta name="theme-color" content="#14324a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314324a'/%3E%3Cpath d='M32 12c-8 11-14 19-14 27a14 14 0 0 0 28 0c0-8-6-16-14-27z' fill='%232a78d6'/%3E%3Cpath d='M26 41a6 6 0 0 0 6 6' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fuentes/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/estilos.css">
+</head>
+<body>
+<a class="saltar" href="#contenido">Ir al contenido</a>
+
+<header class="cabecera">
+  <div class="marco cabecera__fila">
+    <p class="cabecera__entidad">UNGET Rioja</p>
+    <p class="cabecera__corte" id="corte">Información al <span data-corte></span></p>
+  </div>
+</header>
+
+<section class="portada" aria-labelledby="titulo">
+  <div class="marco">
+    <h1 id="titulo" class="portada__titulo">Lo que se viene haciendo contra el dengue</h1>
+    <p class="portada__lede">Vigilancia y control del zancudo, trabajo con municipios, escuelas y comunidades, y vigilancia epidemiológica en la jurisdicción de la UNGET Rioja, <span data-periodo></span>.</p>
+
+    <div class="selector" role="group" aria-labelledby="selector-titulo">
+      <p class="selector__titulo" id="selector-titulo">Ver por distrito</p>
+      <div class="selector__opciones" id="distritos"></div>
+    </div>
+
+    <div class="libro" aria-live="polite">
+      <h2 class="libro__titulo" id="libro-titulo"></h2>
+      <div class="libro__filas" id="libro"></div>
+    </div>
+  </div>
+</section>
+
+<nav class="navegacion" aria-label="Secciones">
+  <div class="marco navegacion__fila">
+    <ul class="navegacion__enlaces">
+      <li><a href="#hallazgos">Hallazgos</a></li>
+      <li><a href="#control">Vigilancia y control</a></li>
+      <li><a href="#promocion">Promoción de la salud</a></li>
+      <li><a href="#epidemiologia">Epidemiología</a></li>
+      <li><a href="#evidencias">Evidencias</a></li>
+    </ul>
+    <div class="navegacion__acciones">
+      <label class="visualmente-oculto" for="distrito-select">Distrito</label>
+      <select id="distrito-select"></select>
+      <button type="button" class="boton-imprimir" id="imprimir">Imprimir o guardar PDF</button>
+    </div>
+  </div>
+</nav>
+
+<main id="contenido">
+
+  <section class="seccion" id="hallazgos" aria-labelledby="h-hallazgos">
+    <div class="marco">
+      <header class="seccion__cabeza">
+        <h2 id="h-hallazgos">Lo que encontramos</h2>
+        <p class="seccion__lede" data-contexto="hallazgos"></p>
+      </header>
+      <p class="aviso-vacio" id="hallazgos-nota" hidden></p>
+
+      <article class="bloque" id="bloque-ia">
+        <div class="bloque__texto">
+          <h3 id="ia-titulo"></h3>
+          <p id="ia-texto"></p>
+          <div class="leyenda-riesgo" id="ia-leyenda" aria-label="Escala de riesgo del índice aédico"></div>
+          <p class="fuente">Índice aédico: viviendas con larvas de Aedes aegypti por cada 100 viviendas inspeccionadas. Escala de riesgo: bajo, menos de 1 %; mediano, de 1 % a 2 %; alto, más de 2 %. Fuente: formato de vigilancia entomológica 2026.</p>
+        </div>
+        <div class="bloque__visual">
+          <div class="grilla-ia" id="ia-grilla"></div>
+          <details class="tabla-alterna">
+            <summary>Ver como tabla</summary>
+            <div id="ia-tabla"></div>
+          </details>
+        </div>
+      </article>
+
+      <article class="bloque" id="bloque-recipientes">
+        <div class="bloque__texto">
+          <h3 id="rec-titulo"></h3>
+          <p id="rec-texto"></p>
+          <p class="fuente">Recipientes con larvas encontrados en control larvario y vigilancia entomológica, por tipo. Fuente: formatos de control y vigilancia 2026.</p>
+        </div>
+        <div class="bloque__visual" id="rec-grafico"></div>
+      </article>
+
+      <article class="bloque" id="bloque-acceso">
+        <div class="bloque__texto">
+          <h3 id="acc-titulo"></h3>
+          <p id="acc-texto"></p>
+          <p class="fuente">Promedio de las vueltas de cada cerco de nebulización espacial. Fuente: formato de nebulización 2026.</p>
+        </div>
+        <div class="bloque__visual">
+          <div class="leyenda" id="acc-leyenda"></div>
+          <div id="acc-grafico"></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion seccion--lavada" id="control" aria-labelledby="h-control">
+    <div class="marco">
+      <header class="seccion__cabeza">
+        <h2 id="h-control">Vigilancia y control vectorial</h2>
+        <p class="seccion__lede" data-contexto="control"></p>
+      </header>
+
+      <article class="bloque bloque--ancho">
+        <div class="bloque__texto">
+          <h3>Control larvario casa por casa</h3>
+          <p id="cl-texto"></p>
+        </div>
+        <div class="tabla-desliza" id="cl-tabla"></div>
+        <p class="fuente">Cobertura: viviendas inspeccionadas sobre programadas. Recipientes tratados: tratamiento físico (vaciar, tapar, voltear o eliminar) y químico (larvicida). Fuente: formato de control larvario 2026.</p>
+      </article>
+
+      <article class="bloque bloque--ancho">
+        <div class="bloque__texto">
+          <h3>Cercos con nebulización espacial</h3>
+          <p id="neb-texto"></p>
+        </div>
+        <div class="tabla-desliza" id="neb-tabla"></div>
+        <p class="fuente">Cada cerco se interviene en tres vueltas. Fuente: formato de nebulización 2026.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion" id="promocion" aria-labelledby="h-promocion">
+    <div class="marco">
+      <header class="seccion__cabeza">
+        <h2 id="h-promocion">Promoción de la salud</h2>
+        <p class="seccion__lede" data-contexto="promocion"></p>
+      </header>
+
+      <dl class="cifras" id="ps-cifras"></dl>
+
+      <article class="bloque">
+        <div class="bloque__texto">
+          <h3>Recojo de criaderos</h3>
+          <p id="rc-texto"></p>
+          <p class="proxima" id="rc-proxima" hidden></p>
+          <p class="fuente">Fuente: consolidado de actividades de Promoción de la Salud 2026.</p>
+        </div>
+        <div class="bloque__visual" id="rc-visual"></div>
+      </article>
+
+      <article class="bloque">
+        <div class="bloque__texto">
+          <h3>Municipios y comités vecinales</h3>
+          <p id="mun-texto"></p>
+          <p class="destacado" id="mun-destacado" hidden></p>
+        </div>
+        <div class="bloque__visual">
+          <h4 class="subtitulo">Ordenanzas municipales de recojo de criaderos</h4>
+          <div class="tabla-desliza" id="ord-tabla"></div>
+          <h4 class="subtitulo">Comités de vigilancia comunitaria conformados</h4>
+          <div class="tabla-desliza" id="com-tabla"></div>
+        </div>
+      </article>
+
+      <article class="bloque">
+        <div class="bloque__texto">
+          <h3>Escuelas: Al cole seguro sin dengue y sin zancudo</h3>
+          <p id="esc-texto"></p>
+        </div>
+        <div class="bloque__visual">
+          <div class="tabla-desliza" id="esc-tabla"></div>
+        </div>
+      </article>
+
+      <article class="bloque">
+        <div class="bloque__texto">
+          <h3>Capacitación y sensibilización</h3>
+          <p id="cap-texto"></p>
+          <p class="fuente">Cada asistencia se cuenta por sesión; una persona puede haber participado en más de una.</p>
+        </div>
+        <div class="bloque__visual" id="cap-grafico"></div>
+      </article>
+
+      <article class="linea" aria-labelledby="h-linea">
+        <div class="linea__cabeza">
+          <h3 id="h-linea">Actividades con evidencia</h3>
+          <p id="linea-texto"></p>
+          <div class="filtros" role="group" aria-label="Filtrar por tipo de actividad" id="filtros-tipo"></div>
+        </div>
+        <div id="linea"></div>
+      </article>
+
+      <article class="bloque bloque--ancho" id="difusion">
+        <div class="bloque__texto">
+          <h3>Difusión</h3>
+          <p id="dif-texto"></p>
+        </div>
+        <div class="afiches" id="afiches"></div>
+        <ul class="publicaciones" id="publicaciones"></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="seccion seccion--lavada" id="epidemiologia" aria-labelledby="h-epi">
+    <div class="marco">
+      <header class="seccion__cabeza">
+        <h2 id="h-epi">Epidemiología</h2>
+        <p class="seccion__lede" data-contexto="epidemiologia"></p>
+      </header>
+      <ul class="epi" id="epi"></ul>
+    </div>
+  </section>
+
+  <section class="seccion" id="evidencias" aria-labelledby="h-evid">
+    <div class="marco">
+      <header class="seccion__cabeza">
+        <h2 id="h-evid">Evidencias de campo</h2>
+        <p class="seccion__lede" id="evid-texto"></p>
+        <div class="filtros" role="group" aria-label="Filtrar evidencias" id="filtros-evid"></div>
+      </header>
+      <div class="galeria" id="galeria"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="marco pie__rejilla">
+    <div>
+      <h2 class="pie__titulo">Fuentes</h2>
+      <ul class="pie__lista">
+        <li>Formatos de consolidado mensual de control larvario, vigilancia entomológica y nebulización espacial 2026.</li>
+        <li>Consolidado de actividades de Promoción de la Salud 2026: recojos, concurso en escuelas, ordenanzas, comités y capacitaciones.</li>
+        <li>Registros y fotos de cada actividad, y acciones del área de Epidemiología.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="pie__titulo">Sobre esta página</h2>
+      <p>La publica la UNGET Rioja y se actualiza conforme llegan los nuevos reportes. Los datos personales de vecinos y pacientes no se publican, y las fotos se publican sin sus coordenadas.</p>
+      <p class="pie__meta" id="generado"></p>
+    </div>
+  </div>
+</footer>
+
+<dialog class="visor" id="visor" aria-label="Foto ampliada">
+  <form method="dialog" class="visor__cerrar"><button type="submit" aria-label="Cerrar">Cerrar</button></form>
+  <img id="visor-img" alt="">
+  <p class="visor__pie" id="visor-pie"></p>
+</dialog>
+<div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+<noscript><p class="marco">Para ver los datos, activa JavaScript en tu navegador.</p></noscript>
+<script src="data/datos.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
